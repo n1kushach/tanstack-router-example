@@ -1,19 +1,15 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+// import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
 export const Route = createRootRoute({
   component: () => (
     <>
       <nav className="border-gray-200 bg-white dark:bg-gray-900">
         <div className="mx-auto flex max-w-screen-xl items-center justify-between p-4">
-          <a
-            href="https://flowbite.com/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
+          <a className="flex items-center space-x-3 rtl:space-x-reverse">
             <img
               src="https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png"
               className="h-8"
-              alt="Flowbite Logo"
             />
             <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
               TanStack Router
@@ -47,7 +43,7 @@ export const Route = createRootRoute({
       <div className="mx-auto max-w-screen-xl">
         <Outlet />
       </div>
-      <TanStackRouterDevtools />
+      {/* <TanStackRouterDevtools /> */}
     </>
   ),
 });

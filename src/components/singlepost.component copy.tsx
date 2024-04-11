@@ -12,7 +12,7 @@ export type Data = {
   };
 };
 
-const Post = ({ data }: Data) => {
+const SinglePost = ({ data }: Data) => {
   return (
     <Link to={`/posts/$postId`} params={{ postId: data?.id.toString() }}>
       <div className="flex h-52 max-w-screen-xl flex-col justify-center gap-2 rounded-md bg-gray-900 p-4">
@@ -28,4 +28,4 @@ const Post = ({ data }: Data) => {
   );
 };
 
-export default Post;
+export default SinglePost;
