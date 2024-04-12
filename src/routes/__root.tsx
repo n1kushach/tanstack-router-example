@@ -1,8 +1,16 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
-// import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import {
+  createRootRouteWithContext,
+  Link,
+  Outlet,
+} from '@tanstack/react-router';
+import { AuthContextType } from '../context/AuthContext';
 
-export const Route = createRootRoute({
-  component: () => (
+export const Route = createRootRouteWithContext<AuthContextType>()({
+  component: () => <RootComponent />,
+});
+
+const RootComponent = () => {
+  return (
     <>
       <nav className="border-gray-200 bg-white dark:bg-gray-900">
         <div className="mx-auto flex max-w-screen-xl items-center justify-between p-4">
@@ -35,6 +43,25 @@ export const Route = createRootRoute({
                   Posts
                 </Link>
               </li>
+              <li>
+                <Link
+                  activeProps={{ className: 'bg-blue-600' }}
+                  search={{ redirect: '/' }}
+                  to="/login"
+                  className="block rounded  px-3 py-2 text-white"
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  activeProps={{ className: 'bg-blue-600' }}
+                  to="/dashboard"
+                  className="block rounded  px-3 py-2 text-white"
+                >
+                  Dashboard
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -43,7 +70,6 @@ export const Route = createRootRoute({
       <div className="mx-auto max-w-screen-xl">
         <Outlet />
       </div>
-      {/* <TanStackRouterDevtools /> */}
     </>
-  ),
-});
+  );
+};
